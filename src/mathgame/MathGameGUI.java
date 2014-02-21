@@ -13,13 +13,8 @@ package mathgame;
 public class MathGameGUI extends javax.swing.JFrame {
 
     /**
-     * @author Kou Xiong
-     * 
-     * Declaring variables
+     * Creates new form MathGameGUI
      */
-    
-    
-    
     public MathGameGUI() {
         initComponents();
     }
@@ -33,18 +28,34 @@ public class MathGameGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
+        txtEq = new javax.swing.JTextField();
+        txtInput = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtAns = new javax.swing.JTextArea();
+        btnCheck = new javax.swing.JButton();
+        btnEq = new javax.swing.JButton();
         btnAdd = new javax.swing.JRadioButton();
         btnSub = new javax.swing.JRadioButton();
         btnMulti = new javax.swing.JRadioButton();
         btnDiv = new javax.swing.JRadioButton();
         btnAll = new javax.swing.JRadioButton();
-        txtEq = new javax.swing.JTextField();
-        btnCheck = new javax.swing.JButton();
-        btnEq = new javax.swing.JButton();
-        txtInput = new javax.swing.JTextField();
-        txtAns = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        txtEq.setEditable(false);
+        txtEq.setEnabled(false);
+
+        txtInput.setText("Answer here");
+
+        txtAns.setEditable(false);
+        txtAns.setColumns(20);
+        txtAns.setRows(5);
+        txtAns.setEnabled(false);
+        jScrollPane1.setViewportView(txtAns);
+
+        btnCheck.setText("Check");
+
+        btnEq.setText("New Equation");
 
         btnAdd.setText("Addition");
 
@@ -56,16 +67,6 @@ public class MathGameGUI extends javax.swing.JFrame {
 
         btnAll.setText("All");
 
-        txtEq.setEditable(false);
-        txtEq.setEnabled(false);
-
-        btnCheck.setText("Check");
-
-        btnEq.setText("New Equation");
-
-        txtAns.setEditable(false);
-        txtAns.setEnabled(false);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -73,62 +74,54 @@ public class MathGameGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnAdd))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnMulti)
-                            .addComponent(btnSub)
-                            .addComponent(btnAll)
-                            .addComponent(btnDiv))
+                        .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(125, 125, 125)
-                                .addComponent(txtInput, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(41, 41, 41)
-                                    .addComponent(btnCheck)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnEq))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGap(32, 32, 32)
-                                    .addComponent(txtEq, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(95, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(txtAns, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(144, 144, 144))
+                                .addComponent(btnSub)
+                                .addGap(144, 144, 144)
+                                .addComponent(txtInput, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnMulti)
+                                    .addComponent(btnDiv)
+                                    .addComponent(btnAll))
+                                .addGap(72, 72, 72)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnCheck)
+                                        .addGap(82, 82, 82)
+                                        .addComponent(btnEq))
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnAdd)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(204, 204, 204)
+                        .addComponent(txtEq, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(206, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addGap(54, 54, 54)
+                .addComponent(txtEq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAdd)
-                .addGap(13, 13, 13)
-                .addComponent(btnMulti)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnSub)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnDiv))
-                    .addComponent(txtEq, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSub))
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCheck)
+                    .addComponent(btnEq)
+                    .addComponent(btnMulti))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtInput, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAll, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnDiv)
                         .addGap(18, 18, 18)
-                        .addComponent(btnEq))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(btnCheck)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtAns, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                        .addComponent(btnAll)))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         pack();
@@ -151,13 +144,13 @@ public class MathGameGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MathGameGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MathGameGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MathGameGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MathGameGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MathGameGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MathGameGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MathGameGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MathGameGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -168,7 +161,7 @@ public class MathGameGUI extends javax.swing.JFrame {
             }
         });
     }
-    
+
     // Variables declaration - do not modify                     
     private javax.swing.JRadioButton btnAdd;
     private javax.swing.JRadioButton btnAll;
@@ -177,7 +170,8 @@ public class MathGameGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnEq;
     private javax.swing.JRadioButton btnMulti;
     private javax.swing.JRadioButton btnSub;
-    private javax.swing.JTextField txtAns;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea txtAns;
     private javax.swing.JTextField txtEq;
     private javax.swing.JTextField txtInput;
     // End of variables declaration                   
