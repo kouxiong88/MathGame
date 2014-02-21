@@ -16,7 +16,9 @@ public class MathGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+       MathGameGUI form = new MathGameGUI();
+       form.setVisible(true);
     }
     
 }

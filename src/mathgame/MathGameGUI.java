@@ -10,12 +10,17 @@ package mathgame;
  *
  * @author Thomas
  */
-public class MathGameGui extends javax.swing.JFrame {
+public class MathGameGUI extends javax.swing.JFrame {
 
     /**
-     * Creates new form MathGameGui
+     * @author Kou Xiong
+     * 
+     * Declaring variables
      */
-    public MathGameGui() {
+    
+    
+    
+    public MathGameGUI() {
         initComponents();
     }
 
@@ -159,11 +164,11 @@ public class MathGameGui extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MathGameGui().setVisible(true);
+                new MathGameGUI().setVisible(true);
             }
         });
     }
-
+    
     // Variables declaration - do not modify                     
     private javax.swing.JRadioButton btnAdd;
     private javax.swing.JRadioButton btnAll;
