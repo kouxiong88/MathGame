@@ -38,5 +38,25 @@ public class MathCalc {
         
         return product;
     }
+
+     //Start Code by Tenzin Dhargye
+    // method that divide two number.
+    public static double mathDiv(double a, double b)
+    {
+        double answer = a / b; // divide two double variable
+        int iAnswer = (int)answer; // type cast the double value answer to integer 
+        return iAnswer; // return iAnswer to calling method
+    }
+
+    //method that subtract.
+    public static int mathSub(int a, int b)
+    {
+        int answer = a - b; // subtract two double variable
+        return answer; // return answer to calling method
+    }
+
+    //End Code by Tenzin Dhargye
+
+    
     
 }
