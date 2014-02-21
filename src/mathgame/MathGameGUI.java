@@ -6,12 +6,25 @@
 
 package mathgame;
 
+import java.util.Random;
+
 /**
  *
  * @author Thomas
  */
 public class MathGameGUI extends javax.swing.JFrame {
 
+    /**
+     * @author Kou
+     * 
+     * Declaring variables
+     */
+    Random ranNum = new Random();
+    int intInput, intAnswer;
+    String[] strRight;
+    String[] strWrong;
+    String strOperation;
+    
     /**
      * Creates new form MathGameGUI
      */
