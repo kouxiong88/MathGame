@@ -6,11 +6,16 @@
 
 package mathgame;
 
+import javax.swing.JOptionPane;
+
 /**
  *
- * @author Kou
+ * @author Kou,Thomas,Tenzin,Tommy
  */
 public class MathGameGUI extends javax.swing.JFrame {
+    
+    int a;
+    int b;
 
     /**
      * Creates new form MathGameGUI
@@ -28,6 +33,7 @@ public class MathGameGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        operationGroup = new javax.swing.ButtonGroup();
         labTitle = new javax.swing.JLabel();
         rbtnAdd = new javax.swing.JRadioButton();
         rbtnSub = new javax.swing.JRadioButton();
@@ -38,13 +44,14 @@ public class MathGameGUI extends javax.swing.JFrame {
         txtInput = new javax.swing.JTextField();
         labAns = new javax.swing.JLabel();
         btnNew = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnCheck = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         labTitle.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 36)); // NOI18N
         labTitle.setText("Math Game");
 
+        operationGroup.add(rbtnAdd);
         rbtnAdd.setText("Addition");
         rbtnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,12 +59,16 @@ public class MathGameGUI extends javax.swing.JFrame {
             }
         });
 
+        operationGroup.add(rbtnSub);
         rbtnSub.setText("Subtraction");
 
+        operationGroup.add(rbtnMulti);
         rbtnMulti.setText("Multiplication");
 
+        operationGroup.add(rbtnDiv);
         rbtnDiv.setText("Division");
 
+        operationGroup.add(rbtnAll);
         rbtnAll.setText("All");
         rbtnAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,8 +86,18 @@ public class MathGameGUI extends javax.swing.JFrame {
         labAns.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         btnNew.setText("New Equation");
+        btnNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Check");
+        btnCheck.setText("Check");
+        btnCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,7 +131,7 @@ public class MathGameGUI extends javax.swing.JFrame {
                                 .addGap(67, 67, 67)
                                 .addComponent(btnNew)
                                 .addGap(35, 35, 35)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(41, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -134,10 +155,10 @@ public class MathGameGUI extends javax.swing.JFrame {
                         .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rbtnDiv)
-                            .addComponent(btnNew)
-                            .addComponent(jButton2))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnNew, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnCheck, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(rbtnDiv))
                         .addGap(18, 18, 18)
                         .addComponent(rbtnAll))
                     .addComponent(labAns, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -152,16 +173,316 @@ public class MathGameGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_rbtnAddActionPerformed
 
     private void rbtnAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnAllActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_rbtnAllActionPerformed
 
-
+    // chooses what operations to display in the text field coded by thomas
+    private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
+         a = random();
+         b = random();
+        
+        if(rbtnAdd.isSelected()){
+            String add = a+"+"+b;
+            labEq.setText(add);
+        }
+        if(rbtnSub.isSelected()){
+            String sub = a+"-"+b;
+            labEq.setText(sub);
+        }
+        if(rbtnMulti.isSelected()){
+            String multi = a+"*"+b;
+            labEq.setText(multi);
+        }
+        if(rbtnDiv.isSelected()){
+            divNum();
+            String div = a+"/"+b;
+            labEq.setText(div);
+        }
+        if(rbtnAll.isSelected()){
+            switch((int)(Math.random()*4+1)){
+                case 1: 
+                    labEq.setText(a+"+"+b);
+                    break;
+                case 2:
+                    labEq.setText(a+"-"+b);
+                    break;
+                case 3:
+                    labEq.setText(a+"*"+b);
+                    break;
+                case 4:
+                    labEq.setText(a+"/"+b);
+                    break;
+            }
+        }
+    }//GEN-LAST:event_btnNewActionPerformed
+    
+    /* This method will check user input and compare it using methods in the
+     * MathCalc class. Also displays messages if correct or wrong.
+     */
+    private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
+        int inputAns = Integer.parseInt(txtInput.getText());
+        
+        if(rbtnAdd.isSelected()){
+            if(inputAns == MathCalc.sum(a, b)){
+                switch((int)(Math.random()*4+1)){
+                    case 1:
+                        JOptionPane.showMessageDialog(this,"Good Job!");
+                        break;
+                    case 2:
+                        JOptionPane.showMessageDialog(this,"Excellent");
+                        break;
+                    case 3:
+                        JOptionPane.showMessageDialog(this,"Keep Up The Good Work!");
+                        break;
+                    case 4:
+                        JOptionPane.showMessageDialog(this,"Nice Work");
+                        break;
+                }
+            }
+            else{ 
+                switch((int)(Math.random()*4+1)){
+                    case 1:
+                        JOptionPane.showMessageDialog(this, "Try Again","Wrong Answer",JOptionPane.ERROR_MESSAGE);
+                        break;
+                    case 2:
+                        JOptionPane.showMessageDialog(this, "No. Please Try Again!","Wrong Answer",JOptionPane.ERROR_MESSAGE);
+                        break;
+                    case 3:
+                        JOptionPane.showMessageDialog(this, "Don't Give Up!","Wrong Answer",JOptionPane.ERROR_MESSAGE);
+                        break;
+                    case 4:
+                        JOptionPane.showMessageDialog(this,"Keep Trying!","Wrong Answer",JOptionPane.ERROR_MESSAGE);
+                        break;
+                }
+            }
+        }
+        
+        if(rbtnMulti.isSelected()){
+            if(inputAns == MathCalc.product(a,b)){
+                switch((int)(Math.random()*4+1)){
+                    case 1:
+                        JOptionPane.showMessageDialog(this,"Good Job!");
+                        break;
+                    case 2:
+                        JOptionPane.showMessageDialog(this,"Excellent");
+                        break;
+                    case 3:
+                        JOptionPane.showMessageDialog(this,"Keep Up The Good Work!");
+                        break;
+                    case 4:
+                        JOptionPane.showMessageDialog(this,"Nice Work");
+                        break;
+                }
+            }
+            else{ 
+                switch((int)(Math.random()*4+1)){
+                    case 1:
+                        JOptionPane.showMessageDialog(this, "Try Again","Wrong Answer",JOptionPane.ERROR_MESSAGE);
+                        break;
+                    case 2:
+                        JOptionPane.showMessageDialog(this, "No. Please Try Again!","Wrong Answer",JOptionPane.ERROR_MESSAGE);
+                        break;
+                    case 3:
+                        JOptionPane.showMessageDialog(this, "Don't Give Up!","Wrong Answer",JOptionPane.ERROR_MESSAGE);
+                        break;
+                    case 4:
+                        JOptionPane.showMessageDialog(this,"Keep Trying!","Wrong Answer",JOptionPane.ERROR_MESSAGE);
+                        break;
+                }
+            }
+        }
+        if(rbtnDiv.isSelected()){
+            if(inputAns == MathCalc.mathDiv(a,b)){
+                switch((int)(Math.random()*4+1)){
+                    case 1:
+                        JOptionPane.showMessageDialog(this,"Good Job!");
+                        break;
+                    case 2:
+                        JOptionPane.showMessageDialog(this,"Excellent");
+                        break;
+                    case 3:
+                        JOptionPane.showMessageDialog(this,"Keep Up The Good Work!");
+                        break;
+                    case 4:
+                        JOptionPane.showMessageDialog(this,"Nice Work");
+                        break;
+                }  
+            }
+            else{ 
+               switch((int)(Math.random()*4+1)){
+                   case 1:
+                       JOptionPane.showMessageDialog(this, "Try Again","Wrong Answer",JOptionPane.ERROR_MESSAGE);
+                       break;
+                   case 2:
+                       JOptionPane.showMessageDialog(this, "No. Please Try Again!","Wrong Answer",JOptionPane.ERROR_MESSAGE);
+                       break;
+                   case 3:
+                       JOptionPane.showMessageDialog(this, "Don't Give Up!","Wrong Answer",JOptionPane.ERROR_MESSAGE);
+                       break;
+                   case 4:
+                       JOptionPane.showMessageDialog(this,"Keep Trying!","Wrong Answer",JOptionPane.ERROR_MESSAGE);
+                       break;
+               }
+           }
+        }
+        
+        if(rbtnSub.isSelected()){
+            if(inputAns == MathCalc.mathSub(a,b)){
+                 switch((int)(Math.random()*4+1)){
+                    case 1:
+                        JOptionPane.showMessageDialog(this,"Good Job!");
+                        break;
+                    case 2:
+                        JOptionPane.showMessageDialog(this,"Excellent");
+                        break;
+                    case 3:
+                        JOptionPane.showMessageDialog(this,"Keep Up The Good Work!");
+                        break;
+                    case 4:
+                        JOptionPane.showMessageDialog(this,"Nice Work");
+                        break;
+                }  
+            }
+            else{ 
+                switch((int)(Math.random()*4+1)){
+                    case 1:
+                        JOptionPane.showMessageDialog(this, "Try Again","Wrong Answer",JOptionPane.ERROR_MESSAGE);
+                        break;
+                    case 2:
+                        JOptionPane.showMessageDialog(this, "No. Please Try Again!","Wrong Answer",JOptionPane.ERROR_MESSAGE);
+                        break;
+                    case 3:
+                        JOptionPane.showMessageDialog(this, "Don't Give Up!","Wrong Answer",JOptionPane.ERROR_MESSAGE);
+                        break;
+                    case 4:
+                        JOptionPane.showMessageDialog(this,"Keep Trying!","Wrong Answer",JOptionPane.ERROR_MESSAGE);
+                        break;
+                }
+            }
+        }
+        
+        if(rbtnAll.isSelected()){
+            if(inputAns == MathCalc.sum(a, b)){
+                switch((int)(Math.random()*4+1)){
+                    case 1:
+                        JOptionPane.showMessageDialog(this,"Good Job!");
+                        break;
+                    case 2:
+                        JOptionPane.showMessageDialog(this,"Excellent");
+                        break;
+                    case 3:
+                        JOptionPane.showMessageDialog(this,"Keep Up The Good Work!");
+                        break;
+                    case 4:
+                        JOptionPane.showMessageDialog(this,"Nice Work");
+                        break;
+                }
+            }
+        else if(inputAns == MathCalc.mathSub(a, b)){
+            switch((int)(Math.random()*4+1)){
+                    case 1:
+                        JOptionPane.showMessageDialog(this,"Good Job!");
+                        break;
+                    case 2:
+                        JOptionPane.showMessageDialog(this,"Excellent");
+                        break;
+                    case 3:
+                        JOptionPane.showMessageDialog(this,"Keep Up The Good Work!");
+                        break;
+                    case 4:
+                        JOptionPane.showMessageDialog(this,"Nice Work");
+                        break;
+                }
+        }
+            else if(inputAns == MathCalc.mathDiv(a, b)){
+                    switch((int)(Math.random()*4+1)){
+                    case 1:
+                        JOptionPane.showMessageDialog(this,"Good Job!");
+                        break;
+                    case 2:
+                        JOptionPane.showMessageDialog(this,"Excellent");
+                        break;
+                    case 3:
+                        JOptionPane.showMessageDialog(this,"Keep Up The Good Work!");
+                        break;
+                    case 4:
+                        JOptionPane.showMessageDialog(this,"Nice Work");
+                        break;
+                }
+            }
+            else if(inputAns == MathCalc.product(a, b)){
+                switch((int)(Math.random()*4+1)){
+                    case 1:
+                        JOptionPane.showMessageDialog(this,"Good Job!");
+                        break;
+                    case 2:
+                        JOptionPane.showMessageDialog(this,"Excellent");
+                        break;
+                    case 3:
+                        JOptionPane.showMessageDialog(this,"Keep Up The Good Work!");
+                        break;
+                    case 4:
+                        JOptionPane.showMessageDialog(this,"Nice Work");
+                        break;
+                }
+            }
+            else{
+                switch((int)(Math.random()*4+1)){
+                    case 1:
+                        JOptionPane.showMessageDialog(this, "Try Again","Wrong Answer",JOptionPane.ERROR_MESSAGE);
+                        break;
+                    case 2:
+                        JOptionPane.showMessageDialog(this, "No. Please Try Again!","Wrong Answer",JOptionPane.ERROR_MESSAGE);
+                        break;
+                    case 3:
+                        JOptionPane.showMessageDialog(this, "Don't Give Up!","Wrong Answer",JOptionPane.ERROR_MESSAGE);
+                        break;
+                    case 4:
+                        JOptionPane.showMessageDialog(this,"Keep Trying!","Wrong Answer",JOptionPane.ERROR_MESSAGE);
+                        break;
+                }
+            }
+        }
+    }//GEN-LAST:event_btnCheckActionPerformed
+    
+    //randomizes a number 1-10
+    private int random(){
+        int number = (int)(Math.random()*10+1);
+        
+        return number;
+    }
+    
+    /*this method makes sure the answer for division is a whole number
+     *the method will run the loop until it finds two numbers with a remainder of 0
+     *or if it cannot find two numbers within the loop limit it will generate two
+     *pre-set numbers.
+     * coded by thomas
+     */
+    private void divNum(){
+        int i = 1;
+        int limit = 0;
+        
+        while (i != 0){
+            if(limit == 1000){
+                a = 6;
+                b = 3;
+                break;
+            }
+            
+            a = random();
+            b = random();
+            i =  a%b;
+            limit++;
+        }
+    }
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCheck;
     private javax.swing.JButton btnNew;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel labAns;
     private javax.swing.JLabel labEq;
     private javax.swing.JLabel labTitle;
+    private javax.swing.ButtonGroup operationGroup;
     private javax.swing.JRadioButton rbtnAdd;
     private javax.swing.JRadioButton rbtnAll;
     private javax.swing.JRadioButton rbtnDiv;
