@@ -217,7 +217,8 @@ public class MathGameGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNewActionPerformed
     
     /* This method will check user input and compare it using methods in the
-     * MathCalc class. Also displays messages if correct or wrong.
+     * MathCalc class. Also displays different messages if correct or wrong.
+     * by thomas
      */
     private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
         int inputAns = Integer.parseInt(txtInput.getText());
