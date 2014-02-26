@@ -14,7 +14,7 @@ package mathgame;
 public class MathGame {
 
     /**
-     * Displays the GUI
+     * Creates and displays the GUI
      * 
      * @see MathGameGUI
      * @param args the command line arguments
