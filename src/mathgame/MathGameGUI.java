@@ -9,8 +9,9 @@ package mathgame;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Kou,Thomas,Tenzin,Tommy
+ * Creates GUI and handles events and actions.
+ * 
+ * @author Kou Xiong, Thomas Le
  */
 public class MathGameGUI extends javax.swing.JFrame {
     
@@ -176,7 +177,11 @@ public class MathGameGUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_rbtnAllActionPerformed
 
-    // chooses what operations to display in the text field coded by thomas
+    /**
+     * Chooses which math operation to display based on user selection
+     * @param evt The action event
+     * @author Thomas Le
+     */
     private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
          a = random();
          b = random();
@@ -210,15 +215,21 @@ public class MathGameGUI extends javax.swing.JFrame {
                     labEq.setText(a+"*"+b);
                     break;
                 case 4:
+                    divNum();
                     labEq.setText(a+"/"+b);
                     break;
             }
         }
     }//GEN-LAST:event_btnNewActionPerformed
     
-    /* This method will check user input and compare it using methods in the
-     * MathCalc class. Also displays different messages if correct or wrong.
-     * by thomas
+
+    /**
+     * Checks and compares user input to answers based on methods from MathCalc.
+     * Displays different messages if correct or wrong.
+     * 
+     * @see MathCalc
+     * @param evt The action event
+     * @author Thomas Le
      */
     private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
         int inputAns = Integer.parseInt(txtInput.getText());
@@ -446,18 +457,24 @@ public class MathGameGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCheckActionPerformed
     
-    //randomizes a number 1-10
+    /**
+     * Randomizes a number between 1 and 10
+     * @return Random integer
+     */
     private int random(){
         int number = (int)(Math.random()*10+1);
         
         return number;
     }
     
-    /*this method makes sure the answer for division is a whole number
-     *the method will run the loop until it finds two numbers with a remainder of 0
-     *or if it cannot find two numbers within the loop limit it will generate two
-     *pre-set numbers.
-     * coded by thomas
+
+    /**
+     * Method makes sure the answer for division is a whole number. The method
+     * will run the loop until it finds two numbers with a remainder of 0,
+     * or if it cannot find any within the loop, it will generate two
+     * pre-set numbers.
+     * 
+     * @author Thomas Le
      */
     private void divNum(){
         int i = 1;
