@@ -7,7 +7,7 @@
 /**
  * This class contains the methods for the different math operations
  * 
- * @author Tommy Yang, 
+ * @author Tommy Yang, Tenzin Dhargye
  */
 public class MathCalc {
     
@@ -21,7 +21,6 @@ public class MathCalc {
     public static int sum(int a, int b) {
         
         int sum = a + b;
-        
         return sum;
     }
     
@@ -35,27 +34,38 @@ public class MathCalc {
     public static int product(int a, int b) {
         
         int product = a * b;
-        
         return product;
     }
 
-     //Start Code by Tenzin Dhargye
-    // method that divide two number.
+
+    /**
+     * Method to divide two numbers
+     * @author Tenzin Dhargye
+     * @param a Value of numerator
+     * @param b Value of denominator
+     * @return The quotient of the values as a double
+     */
     public static double mathDiv(double a, double b)
     {
-        double answer = a / b; // divide two double variable
+        double answer = a / b;
         int iAnswer = (int)answer; // type cast the double value answer to integer 
-        return iAnswer; // return iAnswer to calling method
+        return iAnswer;
     }
 
-    //method that subtract.
+
+    /**
+     * Method for subtraction
+     * @author Tenzin Dhargye
+     * @param a Value to be subtracted from
+     * @param b Value to subtract from a
+     * @return The difference between the two values as an integer
+     */
     public static int mathSub(int a, int b)
     {
-        int answer = a - b; // subtract two double variable
-        return answer; // return answer to calling method
+        int answer = a - b; 
+        return answer;
     }
 
-    //End Code by Tenzin Dhargye
 
     
     
